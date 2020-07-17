@@ -157,16 +157,16 @@ if __name__ == '__main__':
     train_generator_MLE(gen, gen_optimizer, oracle, oracle_samples, MLE_TRAIN_EPOCHS)
 
 
-    # torch.save(gen.state_dict(), pretrained_gen_path)
-    # gen.load_state_dict(torch.load(pretrained_gen_path))
+    torch.save(gen.state_dict(), pretrained_gen_path)
+    gen.load_state_dict(torch.load(pretrained_gen_path))
 
     # PRETRAIN DISCRIMINATOR
     print('\nStarting Discriminator Training...')
     dis_optimizer = optim.Adagrad(dis.parameters())
     train_discriminator(dis, dis_optimizer, oracle_samples, gen, oracle, 50, 3)
 
-    # torch.save(dis.state_dict(), pretrained_dis_path)
-    # dis.load_state_dict(torch.load(pretrained_dis_path))
+    torch.save(dis.state_dict(), pretrained_dis_path)
+    dis.load_state_dict(torch.load(pretrained_dis_path))
 
     # ADVERSARIAL TRAINING
     print('\nStarting Adversarial Training...')
