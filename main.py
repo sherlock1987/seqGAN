@@ -13,7 +13,7 @@ import discriminator
 import helpers
 
 
-CUDA = False
+CUDA = True
 VOCAB_SIZE = 5000
 MAX_SEQ_LEN = 20
 START_LETTER = 0
